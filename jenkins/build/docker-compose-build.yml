@@ -1,0 +1,7 @@
+version: '3'
+services:
+  login:
+    image: "login:$BUILD_TAG"
+    build:
+      context: .
+      dockerfile: Dockerfile-Java
