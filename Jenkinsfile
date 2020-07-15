@@ -22,11 +22,7 @@ pipeline {
             steps {
                 sh './jenkins/test/test.sh mvn test'
             }
-			post {
-                always {
-                    junit 'Login/target/surefire-reports/*.xml' , allowEmptyResults: true
-                }
-			}
+			
 			
 		}
         stage('Deploy') {
