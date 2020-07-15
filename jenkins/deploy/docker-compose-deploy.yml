@@ -3,6 +3,8 @@ services:
   app:
     image: "login:$BUILD_TAG"
     container_name: login
+    ports:
+      - "8071:8071"
     networks:
       - microservios
 networks:
