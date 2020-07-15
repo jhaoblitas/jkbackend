@@ -3,3 +3,7 @@ services:
   app:
     image: "login:$BUILD_TAG"
     container_name: login
+    networks:
+      - microservios
+networks:
+  microservios:
