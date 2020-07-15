@@ -13,7 +13,7 @@ pipeline {
             }
 			post {
                 success {
-                    archiveArtifacts artifacts: 'Login/target/*.jar', fingerprint: true
+                    archiveArtifacts artifacts: 'Login/target/*.jar', fingerprint: true, allowEmptyResults: true
                 }
             }
 		
