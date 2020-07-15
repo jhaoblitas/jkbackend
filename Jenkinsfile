@@ -11,12 +11,22 @@ pipeline {
 			./jenkins/build/build.sh
                 ''' 
             }
+			post {
+                success {
+                    archiveArtifacts artifacts: 'Login/target/*.jar', fingerprint: true
+                }
+            }
 		
         }                        
         stage('Test') {
             steps {
                 sh './jenkins/test/test.sh mvn test'
             }
+			post {
+                always {
+                    junit 'Login/target/surefire-reports/*.xml'
+                }
+			}
 			
 		}
         stage('Deploy') {
