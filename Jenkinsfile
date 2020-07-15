@@ -13,7 +13,7 @@ pipeline {
             }
 			post {
                 success {
-                    archiveArtifacts artifacts: 'Login/target/*.jar', allowEmptyResults: true
+                    archiveArtifacts artifacts: 'Login/target/*.jar', fingerprint: true
                 }
             }
 		
@@ -24,7 +24,7 @@ pipeline {
             }
 			post {
                 always {
-                    junit 'Login/target/surefire-reports/*.xml'
+                    junit 'Login/target/surefire-reports/*.xml' , allowEmptyResults: true
                 }
 			}
 			
